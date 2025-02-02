@@ -40,7 +40,7 @@ class TestUrbanRoutes:
         pass
 
     def test_order_2_ice_creams(self):
-        for mission in range(0, 2):
+        for mission in range(2):
             # Add in S8
             print("Function created for testing ordering an ice creams.")
             pass
