@@ -5,9 +5,10 @@ from selenium import webdriver
 from selenium.webdriver.ie.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 import helpers
-
 
 class UrbanRoutesPage:
  ##Locators
@@ -39,6 +40,8 @@ class UrbanRoutesPage:
 
 
 
+
+
         def __init__(self, driver):
             self.driver = driver
 
@@ -46,59 +49,76 @@ class UrbanRoutesPage:
         def enter_locations(self, from_text, to_text):
             self.driver.find_element(*self.From_Field_Locator).send_keys(from_text)
             self.driver.find_element(*self.To_Field_Locator).send_keys(to_text)
+            time.sleep(10)
 
 
 
         def click_call_taxi_button(self):
+         WebDriverWait(self.driver,5).until(expected_conditions.visibility_of_element_located(self.Call_Taxi_Button_Locator))
          self.driver.find_element(*self.Call_Taxi_Button_Locator).click()
 
 
+
+
+
         def click_supportive_plan(self):
-          self.driver.find_element(*self.Supportive_Plan_Locator).click()
+         time.sleep(5)
+         self.driver.find_element(*self.Supportive_Plan_Locator).click()
+         time.sleep(5)
 
 
         def click_phone_number_field(self):
+         time.sleep(3)
          self.driver.find_element(*self.Phone_Field_Locator).click()
 
 
         def enter_phone_number(self,phone_number):
           self.driver.find_element(*self.Phone_Number_Field_Locator).send_keys(phone_number)
-          time.sleep(15)
+          time.sleep(10)
           self.driver.find_element(*self.Next_Button_Locator).click()
-          time.sleep(5)
+          time.sleep(8)
+
 
 
         def click_add_card_icon(self):
          self.driver.find_element(*self.Add_Card_Icon_Locator).click()
+         time.sleep(3)
 
 
         def enter_card_informations(self,card_number,cvv):
           self.driver.find_element(*self.Card_Number_Input_Field_Locator).send_keys(card_number)
           time.sleep(3)
           self.driver.find_element(*self.Cvv_Locator).send_keys(cvv)
-          time.sleep(20)
+          time.sleep(12)
           self.driver.find_element(*self.Link_Card_Locator).click()
           time.sleep(3)
           self.driver.find_element(*self.Close_Card_Section_Locator).click()
+          time.sleep(5)
 
 
         def link_card(self):
           self.driver.find_element(*self.Link_Card_Locator).click()
 
         def enter_message_for_driver(self,message):
+          time.sleep(3)
           self.driver.find_element(*self.Message_Input_Field).send_keys(message)
+          time.sleep(5)
 
         def order_blanket_and_handkerchiefs(self):
+          time.sleep(3)
           self.driver.find_element(*self.Blanket_And_Handkerchiefs_Locator).click()
 
         def order_soundproof_curtain(self):
+          time.sleep(2)
           self.driver.find_element(*self.Soundproof_Curtain_Locator).click()
+          time.sleep(5)
 
         def select_ice_cream(self):
           self.driver.find_element(*self.Ice_Cream_locator).click()
 
         def click_cash_icon(self):
          self.driver.find_element(*self.Cash_Icon_Locator).click()
+         time.sleep(2)
 
         def click_order_requierements(self):
           self.driver.find_element(*self.Order_Requirements_Locator).click()
@@ -107,17 +127,20 @@ class UrbanRoutesPage:
           self.driver.find_element(*self.Close_Button_Locator).click()
 
         def click_Number_And_Order_Button(self):
+          time.sleep(5)
           self.driver.find_element(*self.Enter_The_Number_And_Order_Locator).click()
-
+          time.sleep(5)
 
         def close_Card_section(self):
            self.driver.find_element(*self.Close_Button_Locator).click()
 
 
         def enter_verification_code(self,verification_code):
+         time.sleep(3)
          self.driver.find_element(*self.Verification_Input_Fıeld_Locator).send_keys(verification_code)
          time.sleep(4)
          self.driver.find_element(*self.Confirm_Button_Locator).click()
+         time.sleep(3)
 
 
 
